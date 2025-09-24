@@ -18,7 +18,7 @@ function Post() {
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
-  }, []);
+  }, [id]);
 
   const addComment = () => {
     axios
@@ -56,7 +56,7 @@ function Post() {
       .then(() => {
         setComments(
           comments.filter((val) => {
-            return val.id != id;
+            return val.id !== id;
           })
         );
       });
